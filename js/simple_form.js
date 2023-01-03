@@ -28,6 +28,15 @@ tel.addEventListener('input', function(){
     else telError.textContent = "tel is Incorrect";
 });
 
+//User need to follow pre-defined password rules.Rule1 - minimum 8 characters
+const pwd = document.querySelector('#pwd');
+const pwdError = document.querySelector('.pwd-error');
+pwd.addEventListener('input', function(){
+    let pwdRegex = RegExp('^[A-Za-z0-9@._-]{8,}$');
+    if(pwdRegex.test(pwd.value)) 
+        pwdError.textContent("");
+    else pwdError.textContent = "password is Incorrect";
+});
 
 const salary = document.querySelector("#salary");
 const output = document.querySelector('.salary-output');
