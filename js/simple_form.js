@@ -28,11 +28,16 @@ tel.addEventListener('input', function(){
     else telError.textContent = "tel is Incorrect";
 });
 
-//User need to follow pre-defined password rules.Rule1 - minimum 8 characters
+/*
+Rule1 - minimum 8 characters
+Rule2 - should have at least 1 upper case
+Rule3 - should have at least 1 numeric number in the password
+Rule4 - has exactly 1 special character
+*/
 const pwd = document.querySelector('#pwd');
 const pwdError = document.querySelector('.pwd-error');
 pwd.addEventListener('input', function(){
-    let pwdRegex = RegExp('^[A-Za-z0-9@._-]{8,}$');
+    let pwdRegex = RegExp('^(?=.*[A-z])(?=.*[0-9])(?=.*[@#$%^&*()-+=])([a-zA-Z0-9@._-]).{8,}$');
     if(pwdRegex.test(pwd.value)) 
         pwdError.textContent("");
     else pwdError.textContent = "password is Incorrect";
