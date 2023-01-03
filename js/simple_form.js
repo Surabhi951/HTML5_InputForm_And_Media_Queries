@@ -18,6 +18,17 @@ email.addEventListener('input', function() {
     else emailError.textContent = "Email is Incorrect";
 });
 
+//User need to follow pre-defined mobile format 
+const tel = document.querySelector('#tel');
+const telError = document.querySelector('.tel-error');
+tel.addEventListener('input', function(){
+    let telRegex = RegExp('^[\\d]{2}\\s[\\d]{10}$');
+    if(telRegex.test(tel.value)) 
+        telError.textContent = "";
+    else telError.textContent = "tel is Incorrect";
+});
+
+
 const salary = document.querySelector("#salary");
 const output = document.querySelector('.salary-output');
 output.textContent = salary.value;
